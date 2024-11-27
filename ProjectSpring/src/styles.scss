@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';
+
+.footer{
+  position: absolute;
+  width: 100%;
+  height: 60px;
+  background-color: rgb(79, 82, 82);
+  text-align: center;
+  color: aliceblue;
+  bottom: 0;
+}

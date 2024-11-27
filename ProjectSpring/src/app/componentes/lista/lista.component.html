@@ -1,0 +1,48 @@
+<form>
+	<div class="mb-3 row">
+		<label for="table-filtering-search" class="col-xs-3 col-sm-auto col-form-label">Full text search:</label>
+		<div class="col-xs-3 col-sm-auto">
+			<input id="table-filtering-search" class="form-control" type="text" [formControl]="filter" />
+		</div>
+	</div>
+</form>
+
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th scope="col">id</th>
+			<th scope="col">Nombre</th>
+			<th scope="col">Descripcion</th>
+			<th scope="col">Precio</th>
+      <th scope="col">Cantidad</th>
+      <th scope="col">Accion</th>
+		</tr>
+	</thead>
+	<tbody>
+		@for (producto of productos; track producto.id) {
+			<tr>
+				<th scope="row">{{ producto.id }}</th>
+				<td>
+
+					{{ producto.nombre }}
+				</td>
+        <td>
+
+					{{ producto.descripcion }}
+				</td>
+				<td>{{ producto.precio | number }}</td>
+				<td>{{ producto.cantidad | number }}</td>
+        <td>
+          <div class="">
+          <button type="button" class="btn btn-primary me-2"  [routerLink]="['/editar', producto.id]">Editar</button>
+          <button type="button" class="btn btn-danger" (click)="eliminarProducto(producto.id)">Eliminar</button>
+          </div>
+      </td>
+			</tr>
+		}
+	</tbody>
+</table>
+
+
+
+

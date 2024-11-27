@@ -1,0 +1,58 @@
+<div class="container d-flex justify-content-center align-items-center">
+  <div class="card shadow p-4" style="width: 400px;">
+    <h3 class="text-center mb-4">Crear Producto</h3>
+    <form [formGroup]="productoForm" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre</label>
+        <input
+          type="text"
+          id="nombre"
+          class="form-control"
+          formControlName="nombre"
+          placeholder="Ingrese el nombre del producto"
+          [class.is-invalid]="productoForm.get('nombre')?.invalid && productoForm.get('nombre')?.touched"
+        />
+        <div class="invalid-feedback">El nombre es obligatorio.</div>
+      </div>
+      <div class="mb-3">
+        <label for="descripcion" class="form-label">Descripción</label>
+        <textarea
+          id="descripcion"
+          class="form-control"
+          formControlName="descripcion"
+          placeholder="Ingrese la descripción del producto"
+          [class.is-invalid]="productoForm.get('descripcion')?.invalid && productoForm.get('descripcion')?.touched"
+        ></textarea>
+        <div class="invalid-feedback">La descripción es obligatoria.</div>
+      </div>
+      <div class="mb-3">
+        <label for="precio" class="form-label">Precio</label>
+        <input
+          type="number"
+          id="precio"
+          class="form-control"
+          formControlName="precio"
+          placeholder="Ingrese el precio del producto"
+          [class.is-invalid]="productoForm.get('precio')?.invalid && productoForm.get('precio')?.touched"
+        />
+        <div class="invalid-feedback">El precio debe ser mayor o igual a 25 dolares.</div>
+      </div>
+      <div class="mb-3">
+        <label for="cantidad" class="form-label">Cantidad</label>
+        <input
+          type="number"
+          id="cantidad"
+          class="form-control"
+          formControlName="cantidad"
+          placeholder="Ingrese la cantidad del producto"
+          [class.is-invalid]="productoForm.get('cantidad')?.invalid && productoForm.get('cantidad')?.touched"
+        />
+        <div class="invalid-feedback">La cantidad debe ser mayor o igual a 1 producto.</div>
+      </div>
+      <button type="submit" class="btn btn-outline-primary w-100" [disabled]="productoForm.invalid">
+        Crear Producto
+      </button>
+    </form>
+  </div>
+</div>
+
